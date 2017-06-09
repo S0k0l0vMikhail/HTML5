@@ -6,31 +6,40 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script>
     window.onload = function (){
-      if (localStorage.getItem('bgcolor')!==null){
-        var color = localStorage.getItem('bgcolor');
-        document.getElementsByTagName('body')[0].style.background = color;
+
+      if(localStorage.getItem('colorform') !== null) {
+        var colorform = localStorage.getItem('colorform');
+        document.getElementById('form').style.color = colorform;
+      }
+      if(localStorage.getItem('bgcolor') !== null) {
+        var bgcolor = localStorage.getItem('bgcolor');
+        document.getElementById('form').style.background = bgcolor;
       }
 
-      document.getElementById('light').onclick = function (){
-        console.log('work');
-        document.getElementsByTagName('body')[0].style.background = 'green';
-        localStorage.setItem('bgcolor','green');
-
-    }
-    document.getElementById('dark').onclick = function (){
-      console.log('work');
-      document.getElementsByTagName('body')[0].style.background = 'red';
-      localStorage.setItem('bgcolor','red');
-
+      document.getElementById('dark').onclick = function (){
+        var bgcolor = document.getElementById('form')
+        var colorform = document.getElementById('form')
+        colorform.style.color = 'white';
+        bgcolor.style.background = 'red';
+        localStorage.setItem('colorform', colorform.style.color);
+        localStorage.setItem('bgcolor', bgcolor.style.background);
   }
+      document.getElementById('light').onclick = function (){
+        var bgcolor = document.getElementById('form')
+        var colorform = document.getElementById('form')
+        colorform.style.color = 'black';
+        bgcolor.style.background = 'yellow';
+        localStorage.setItem('colorform', colorform.style.color);
+        localStorage.setItem('bgcolor', bgcolor.style.background);
+}
   }
   </script>
   <style>
 
   </style>
 </head>
-<body>
-  <form id='form'>
+<body id="form">
+  <form>
     <p><b>Ваше имя:</b><br>
    <input type="text" size="40">
   </p>
