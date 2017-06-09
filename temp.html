@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+  <meta charset="utf-8"/>
+   <title>
+   Тестовая страница
+  </title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+      function valid () {
+        var state =  $("input[name='sex']:checked").val();
+        $("#message").show();
+        if(!state) return $("#message").html("<font style='color:red'>Укажите каш пол</font><br/>");
+        $("#message").hide();
+      }
+  </script>
+  <style>
+
+  </style>
+ </head>
+ <body>
+<form name="form" id="form">
+  <label for="female" >Женский</label>
+  <input type="radio" name="sex" value="female" />
+  <label for="male" >Мужской</label>
+  <input type="radio" name="sex" value="male" />
+</br>
+<span id="message"></span>
+</br>
+<input type="button" id="done" onclick="return valid()" value="готово"/>
+</form>
+ </body>
+ </html>
