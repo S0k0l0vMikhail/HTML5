@@ -6,15 +6,39 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script>
     window.onload = function (){
-    document.getElementById('green').onclick = function (){
-      console.log('work');
-      document.getElementsByTagName('body')[0].style.background = 'green';
+      if (localStorage.getItem('bgcolor')!==null){
+        var color = localStorage.getItem('bgcolor');
+        document.getElementsByTagName('body')[0].style.background = color;
+      }
+
+      document.getElementById('light').onclick = function (){
+        console.log('work');
+        document.getElementsByTagName('body')[0].style.background = 'green';
+        localStorage.setItem('bgcolor','green');
+
     }
+    document.getElementById('dark').onclick = function (){
+      console.log('work');
+      document.getElementsByTagName('body')[0].style.background = 'red';
+      localStorage.setItem('bgcolor','red');
+
+  }
   }
   </script>
+  <style>
+
+  </style>
 </head>
 <body>
-<button id="green">Green</button>
-<button id="red">Red</button>
+  <form id='form'>
+    <p><b>Ваше имя:</b><br>
+   <input type="text" size="40">
+  </p>
+  <p><b>Ваша фамилия:</b><br>
+ <input type="text" size="40">
+</p>
+  <button id="light">День</button>
+  <button id="dark">Ночь</button>
+  </form>
 </body>
 </html>
